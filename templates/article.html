@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <div class="article">
+        <img src="{{ article[0][5] }}" width="300px" class="article" />
+        <br />
+        <h1>{{ article[0][3] }}</h1>
+        <br />
+        <p>Author: {{ article[0][2] }} | Created on: {{ article[0][9] }} | {{ article[0][10] }}</p>
+        <br />
+    </div>
+        <br />
+        <div class="post_body">
+            {{ article[0][4] | safe }}
+        </div>
+        <br />
+
+{% endblock %}

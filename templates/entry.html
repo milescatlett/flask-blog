@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="article">
+        <img src="{{ entry[0][5] }}" width="300px" class="article" />
+        <br />
+        <h1>{{ entry[0][3] }}</h1>
+        <br />
+        <p>Author: {{ entry[0][2] }} | Created on: {{ entry[0][9] }} | {{ entry[0][10] }}</p>
+        <br />
+        <iframe width="560" height="315" src="{{ entry[0][7] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+        <script src="{{ entry[0][6] }}"></script>
+        <br />
+        <div class="post_body">
+            {{ entry[0][4] | safe }}
+        </div>
+        <br />
+    
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="gray-center" style="text-align:center;"><div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/zoRfneRlhjw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div></div>
+        </div>
+        <div class="col-sm-3">
+            <div class="gray-center">
+                <a href="#" style="text-decoration:none;">
+                <img src="/uploads/PXL_20210717_203900619.jpg" width="100%" /><br />
+                <h5>Learn why I'm a trailblazer</h5>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="gray-center">
+                <a href="/resume" style="text-decoration:none;">
+                <h4>Check out my resume</h4>
+                <div class="list-group">
+                    <div class="list-group-item left" style="font-size:13px!important;">
+                        <strong>Senior Developer</strong> - 1/23 to now<br />
+                        <strong>Caspio Developer</strong> - 5/22 to now<br />
+                        Solutions Afoot - (remote)<br />
+                        <ul>
+                            <li>Team lead</li>
+                        </ul>
+                        <strong>Caspio Certified Developer</strong> - 4/22<br />
+                        Caspio.com<br />
+                        <strong>JavaScript Algrith & Data Struct Cert</strong> - 9/18<br />
+                        FreeCodeCamp.org<br /><br />
+                        <strong>Cert in IT-Prog & Software Dev</strong> - 5/22 to now<br />
+                        Forsyth Technical Community College<br />
+                        <strong>Master of Education</strong> - 1/19 - 5/20<br />
+                        High Point University Leadership Academy<br />
+                    </div>
+                </div>
+                Click here for more...
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="gray-center">
+                <a href="/about" style="text-decoration:none;">
+                <ul class="list-group" style="font-size:12px;text-align:left!important;">
+                    <li class="list-group-item two-head"><strong>Python Skills</strong></li>
+                    <li class="list-group-item two">Flask</li>
+                    <li class="list-group-item two">Databases, SQLAlchemy, MySQL</li>
+                    <li class="list-group-item two">Numpy, Pandas, and Matplotlib</li>
+                    <li class="list-group-item two">Web scraping with Selinium and Beautiful Soup</li>
+                    <li class="list-group-item two">API gateway building (Amazon S3 and Caspio)</li>
+                    <li class="list-group-item two-head" style="text-align:center!important;"><strong>Click here for more random stuff about me...</strong></li>
+                </ul>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="gray-center">
+                <a href="https://github.com/milescatlett" style="text-decoration:none;">
+                <img src="/uploads/Screenshot_20230103_095022.png" width="100%" /><br />
+                <p style="font-size:13px;margin-bottom:0!important;">Check out my GitHub page</p>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="gray-center"><div class="video-container">
+                <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7016117744240599040" height="312" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+            </div></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="gray-center">
+                <a href="/portfolio" style="text-decoration:none;">
+                <h4>Check out my portfolio</h4>
+                <ul class="list-group">
+                {% for num in data %}
+                    <li class="list-group-item one">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <img src="{{ num[5] }}" width="100%" />
+                            </div>
+                            <div class="col-sm-4">
+                                {{ num[3] }}
+                            </div>
+                            <div class="col-sm-3">
+                                {{ num[2] }}
+                            </div>
+                            <div class="col-sm-3">
+                                <a href="/portfolio/{{ num[1] }}">Click here for entry</a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

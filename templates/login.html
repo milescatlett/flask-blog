@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Sign in</h1>
+    <p>
+        <form style="max-width:400px;" method="POST" action = "{{ url_for('login') }}">
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <input name="email" type="email" class="form-control" value="{{ request.form['email'] }}"></input>
+            <label class="form-label" for="email">Email address</label>
+        </div>
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+            <input name="password" type="password" class="form-control" value="{{ request.form['password'] }}"></input>
+            <label class="form-label" for="password">Password</label>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+        </form>
+    </p>
+    {{ msg }} 
+{% endblock %}

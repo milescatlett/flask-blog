@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<script src="/static/scripts/tinymce/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+  tinymce.init({
+    selector: '#content'
+  });
+ </script>
+ <h1>Dashboard</h1>
+ <div class="row">
+    <div class="col-sm-8">
+        <h2>Create a post</h2>
+        <p>
+        <form method="POST" action="{{ url_for('dashboard') }}" enctype="multipart/form-data">
+        <!-- Post type radio input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="p_type">Type</label>
+            <div class="radio">
+                <label><input type="radio" name="p_type" checked value="blog"> Blog Post</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="p_type" value="portfolio"> Portfolio Entry</label>
+            </div>
+        </div>
+        <!-- Title input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="title">Post title</label>
+            <input name="title" type="text" class="form-control" value="{{ request.form['title'] }}"></input>
+        </div>
+        <!-- Post input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="body">Post body</label>
+            <textarea name="body" class="form-control" rows="20" id="content">{{ request.form['body'] }}</textarea>
+        </div>
+        <!-- Git hub link input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="keywords">Github link for embed (<a href="https://emgithub.com/">click here to get link</a>)</label>
+            <input name="emgithub" type="text" class="form-control" value="{{ request.form['emgithub'] }}"></input>
+        </div>
+        <!-- Youtube link input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="youtube">Youtube link for embed</label>
+            <input name="youtube" type="text" class="form-control" value="{{ request.form['youtube'] }}"></input>
+        </div>
+        <!-- Keywords input -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="keywords">Keywords</label>
+            <input name="keywords" type="text" class="form-control" value="{{ request.form['keywords'] }}"></input>
+        </div>
+        <!-- File upload -->
+        <div class="form-outline mb-4">
+            <label class="form-label" for="file">Upload image</label>
+            <input name="file" type="file" class="form-control"></input>
+        </div>
+        <br />
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Submit post</button>
+        </form>
+        </p>
+    </div>
+    <div class="col-sm-4">
+    <h2>Edit existing posts</h2><br /><br />
+    <ul class="list-group">
+    {% for num in data %}
+        <li class="list-group-item one">
+            <div class="row">
+                <div class="col-sm-8">
+                    <a href="/dashboard/{{ num[1] }}">{{ num[3] }}</a>
+                </div>
+                <div class="col-sm-4">
+                    {{ num[9] }}
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
